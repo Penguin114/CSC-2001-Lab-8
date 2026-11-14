@@ -1,18 +1,29 @@
-/**********************
-Name(s):
+import java.util.Scanner;
 
-Responsibilities Descriptions: 
+/**********************
+Name(s): Randy D. Peter W.
+
+Responsibilities Descriptions:
+
 
 Sources you used:
+ (1) geeksforgeeks.com
 
 ***********************/
 public class ComparisonSort {
     public static void main(){
         int capacity;
         //TODO: ask user to enter the capacity
-
+        Scanner scan = new Scanner(System.in);
+        int cap;
+        try {
+            cap = scan.nextInt();
+        } catch (Exception e) {
+            System.out.println("Not a valid number, retry again.");
+            cap = scan.nextInt();
+        }
         //TODO: call the method createRandom and pass capacity
-
+        
         //TODO: call methods of sort algorithm  you implemented and Arrays.sort()
         // by passing sorted and unsorted arrays
 
