@@ -13,6 +13,8 @@ Sources you used:
 
 ***********************/
 public class ComparisonSort {
+    private static int mComparison = 0;
+
     public static void main(){
         //TODO: ask user to enter the capacity
         System.out.println("Enter an integer to determine capacity of the array.");
@@ -80,20 +82,69 @@ public class ComparisonSort {
         return comparisons;
     }
     /**
-     * TODO: to be changed soon by me or peeta.
+     * Sorts the array using merge sort and counts each comparison in mComparison.
+     * @param list the array to sort
+     * @return the sorted array
+     */
+    public static int[] mergeSortResult(int[] list) {
+        mComparison++;
+        if (list.length <= 1) {
+            return list;
+        }
+
+        int middle = list.length / 2;
+        int[] left = mergeSortResult(Arrays.copyOfRange(list, 0, middle));
+        int[] right = mergeSortResult(Arrays.copyOfRange(list, middle, list.length));
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int resultIndex = 0;
+
+        while (true) {
+            mComparison++;
+            if (leftIndex >= left.length) {
+                break;
+            }
+            mComparison++;
+            if (rightIndex >= right.length) {
+                break;
+            }
+            mComparison++;
+            if (left[leftIndex] <= right[rightIndex]) {
+                list[resultIndex++] = left[leftIndex++];
+            } else {
+                list[resultIndex++] = right[rightIndex++];
+            }
+        }
+
+        while (true) {
+            mComparison++;
+            if (leftIndex >= left.length) {
+                break;
+            }
+            list[resultIndex++] = left[leftIndex++];
+        }
+        while (true) {
+            mComparison++;
+            if (rightIndex >= right.length) {
+                break;
+            }
+            list[resultIndex++] = right[rightIndex++];
+        }
+        return list;
+    }
+
+    /**
+     * TODO: vibe code this and make sure AI does not make improvement to this algorithm.
      * create merge sort using the given integer array
      * @ param: int[]
      * @ return: int number of comparison
-     * (1) {3, 5, 0, 2} -> mergeSort() -> {0, 2, 3, 5}
      */
-    /*
     public static int mergeSort (int[] list) {
-        //TODO: implement
-        int m = list.length / 2;
-        merge(list, );
-        merge(list, m + 1, r);
-        merge(list, l, m, r);
-        }
+        mComparison = 0;
+
+        mergeSortResult(list);
+
+        return mComparison;
     }
 
     /*
