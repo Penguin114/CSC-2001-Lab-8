@@ -108,6 +108,8 @@ public class ComparisonSort {
             if (rightIndex >= right.length) {
                 break;
             }
+
+            //if left is smaller, add left, right smaller, add right
             mComparison++;
             if (left[leftIndex] <= right[rightIndex]) {
                 list[resultIndex++] = left[leftIndex++];
@@ -116,6 +118,7 @@ public class ComparisonSort {
             }
         }
 
+        // put rest of the element into the list in case one of the side lists still have elements remaining
         while (true) {
             mComparison++;
             if (leftIndex >= left.length) {
@@ -125,6 +128,53 @@ public class ComparisonSort {
         }
         while (true) {
             mComparison++;
+            if (rightIndex >= right.length) {
+                break;
+            }
+            list[resultIndex++] = right[rightIndex++];
+        }
+        return list;
+    }
+
+    /**
+     * Sorts the array using merge sort and counts element comparisons in mComparison.
+     * @param list the array to sort
+     * @return the sorted array
+     */
+    public static int[] mergeSortResultTwo(int[] list) {
+        if (list.length <= 1) {
+            return list;
+        }
+
+        int middle = list.length / 2;
+        int[] left = mergeSortResultTwo(Arrays.copyOfRange(list, 0, middle));
+        int[] right = mergeSortResultTwo(Arrays.copyOfRange(list, middle, list.length));
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int resultIndex = 0;
+
+        while (true) {
+            if (leftIndex >= left.length) {
+                break;
+            }
+            if (rightIndex >= right.length) {
+                break;
+            }
+            mComparison++;
+            if (left[leftIndex] <= right[rightIndex]) {
+                list[resultIndex++] = left[leftIndex++];
+            } else {
+                list[resultIndex++] = right[rightIndex++];
+            }
+        }
+
+        while (true) {
+            if (leftIndex >= left.length) {
+                break;
+            }
+            list[resultIndex++] = left[leftIndex++];
+        }
+        while (true) {
             if (rightIndex >= right.length) {
                 break;
             }
@@ -155,7 +205,7 @@ public class ComparisonSort {
     /*
     private static void merge(int[] list, int l, int m, int r) {
     // TODO: implement
-            
+
         int n1 = m - l + 1;
         int n2 = r - m;
         int L[] = new int[n1];
