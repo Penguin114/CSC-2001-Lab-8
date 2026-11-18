@@ -31,12 +31,11 @@ public class ComparisonSort {
 
 
         long startTime = System.nanoTime();
-        int comparisons = insertionSort(randomArray);
-        // mergeSort(randomArray);
-        // Arrays.sort(randomArray);
+        int comparisons = insertionSort(new int[]{6, 3, 5, 2, 1}); //insertionSort(randomArray); Arrays.sort(randomArray);
+
         long endTime = System.nanoTime();
         long duration = ((endTime - startTime) / 1000000);
-        System.out.println("Insertion sort of " + cap + " elements took " + duration + " ms and " + comparisons + " comparisons.");
+        System.out.println("sort of " + cap + " elements took " + duration + " ms and " + comparisons + " comparisons.");
     }
     /**
     * create an array of size capacity with random integer values.
@@ -192,7 +191,7 @@ public class ComparisonSort {
     public static int mergeSort (int[] list) {
         mComparison = 0;
 
-        mergeSortResult(list);
+        mergeSortResultTwo(list);
 
         return mComparison;
     }
