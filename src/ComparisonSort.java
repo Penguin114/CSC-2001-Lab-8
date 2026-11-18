@@ -191,7 +191,9 @@ public class ComparisonSort {
      */
     public static int mergeSort (int[] list) {
         mComparison = 0;
-        mergeSortResultTwo(list);
+
+        mergeSortResult(list);
+
         return mComparison;
     }
 
