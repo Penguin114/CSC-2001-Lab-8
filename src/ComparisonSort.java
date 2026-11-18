@@ -6,17 +6,20 @@ import java.util.Arrays;
 Name(s): Randy D. Peter W.
 
 Responsibilities Descriptions:
-Randy D.: Insertion Sort, checking number of comparisons
- Peter W.:
+Randy D.: Insertion Sort and checking number of comparisons
+ Peter W.:  Merge Sort, plotting, filling out table
+
+ All: Test cases and Questions for Lab 8.
 
 Sources you used:
  (1) geeksforgeeks.com
+ (2) ChatGPT (vibe coded Merge Sort -> approved by Professor)
 
 ***********************/
 public class ComparisonSort {
     private static int mComparison = 0;
 
-    public static void main(){
+    public static void main() {
         //TODO: ask user to enter the capacity
         System.out.println("Enter an integer to determine capacity of the array.");
         Scanner scan = new Scanner(System.in);
