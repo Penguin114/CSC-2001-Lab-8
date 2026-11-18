@@ -26,16 +26,28 @@ public class ComparisonSort {
         int cap = scan.nextInt();
         //TODO: call the method createRandom and pass capacity
         int[] randomArray = intRandArray(cap);
+        Arrays.sort(randomArray);
         //TODO: call methods of sort algorithm  you implemented and Arrays.sort()
         // by passing sorted and unsorted arrays
 
+        long startInsertTime = System.nanoTime();
+        int comparisonsInsertion = insertionSort(randomArray);
+        long endInsertTime = System.nanoTime();
+        long insertDuration = ((endInsertTime - startInsertTime) / 1000000);
+        System.out.println("Insertion sort of " + cap + " elements took " + insertDuration + " ms and " + comparisonsInsertion + " comparisons.");
+
+        long startMergeTime = System.nanoTime();
+        int mergeComparisons = mergeSort(randomArray);
+        long endMergeTime = System.nanoTime();
+        long mergeDuration = ((endMergeTime - startMergeTime) / 1000000);
+        System.out.println("Merge sort of " + cap + " elements took " + mergeDuration + " ms and " + mergeComparisons + " comparisons.");
 
         long startTime = System.nanoTime();
-        int comparisons = insertionSort(new int[]{6, 3, 5, 2, 1}); //insertionSort(randomArray); Arrays.sort(randomArray);
-
+        Arrays.sort(randomArray);
         long endTime = System.nanoTime();
         long duration = ((endTime - startTime) / 1000000);
-        System.out.println("sort of " + cap + " elements took " + duration + " ms and " + comparisons + " comparisons.");
+        System.out.println("Java array sort of " + cap + " elements took " + duration + " ms.");
+
     }
     /**
     * create an array of size capacity with random integer values.
@@ -84,7 +96,7 @@ public class ComparisonSort {
      * Sorts the array using merge sort and counts each comparison in mComparison.
      * @param list the array to sort
      * @return the sorted array
-     */
+
     public static int[] mergeSortResult(int[] list) {
         mComparison++;
         if (list.length <= 1) {
@@ -134,7 +146,7 @@ public class ComparisonSort {
         }
         return list;
     }
-
+*/
     /**
      * Sorts the array using merge sort and counts element comparisons in mComparison.
      * @param list the array to sort
@@ -195,49 +207,4 @@ public class ComparisonSort {
 
         return mComparison;
     }
-
-    /*
-    *  merges the arrays together, helper method for the mergeSort method.
-    *  @param...
-    *  @return...
-     */
-    /*
-    private static void merge(int[] list, int l, int m, int r) {
-    // TODO: implement
-
-        int n1 = m - l + 1;
-        int n2 = r - m;
-        int L[] = new int[n1];
-        int R[] = new int[n2];
-        for (int i = 0; i < n1; ++i) {
-            L[i] = list[l + i];
-        }
-        for (int j = 0; j < n2; ++j) {
-            R[j] = list[m + 1 + j];
-        }
-        int i = 0, j = 0;
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                list[k] = L[i];
-                i++;
-            }
-            else {
-                list[k] = R[j];
-                j++;
-            }
-            k++;
-        }
-        while (i < n1) {
-            list[k] = L[i];
-            i++;
-            k++;
-        }
-        while (j < n2) {
-            list[k] = R[j];
-            j++;
-            k++;
-        }
-    }
-     */
 }
