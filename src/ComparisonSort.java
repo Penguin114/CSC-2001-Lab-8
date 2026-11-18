@@ -6,7 +6,8 @@ import java.util.Arrays;
 Name(s): Randy D. Peter W.
 
 Responsibilities Descriptions:
-
+Randy D.: Insertion Sort, checking number of comparisons
+ Peter W.:
 
 Sources you used:
  (1) geeksforgeeks.com
@@ -26,7 +27,8 @@ public class ComparisonSort {
         int cap = scan.nextInt();
         //TODO: call the method createRandom and pass capacity
         int[] randomArray = intRandArray(cap);
-        Arrays.sort(randomArray);
+        int[] randomArray1 = Arrays.copyOf(randomArray, randomArray.length);
+        int[] randomArray2 = Arrays.copyOf(randomArray, randomArray.length);
         //TODO: call methods of sort algorithm  you implemented and Arrays.sort()
         // by passing sorted and unsorted arrays
 
@@ -37,13 +39,13 @@ public class ComparisonSort {
         System.out.println("Insertion sort of " + cap + " elements took " + insertDuration + " ms and " + comparisonsInsertion + " comparisons.");
 
         long startMergeTime = System.nanoTime();
-        int mergeComparisons = mergeSort(randomArray);
+        int mergeComparisons = mergeSort(randomArray1);
         long endMergeTime = System.nanoTime();
         long mergeDuration = ((endMergeTime - startMergeTime) / 1000000);
         System.out.println("Merge sort of " + cap + " elements took " + mergeDuration + " ms and " + mergeComparisons + " comparisons.");
 
         long startTime = System.nanoTime();
-        Arrays.sort(randomArray);
+        Arrays.sort(randomArray2);
         long endTime = System.nanoTime();
         long duration = ((endTime - startTime) / 1000000);
         System.out.println("Java array sort of " + cap + " elements took " + duration + " ms.");
