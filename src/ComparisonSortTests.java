@@ -3,7 +3,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ComparisonSortTests {
-    /*
     @Test
     public void mergeSortTest(){
         int[] l = {5,4,3,2,1};
@@ -35,7 +34,6 @@ public class ComparisonSortTests {
         assertTrue(sorted);
     }
 
-     */
     @Test
     public void insertionSortTest(){
         int[] list = {5, 2, 3, 1, 4};
@@ -44,6 +42,4 @@ public class ComparisonSortTests {
         assertArrayEquals(new int[]{1, 2, 3, 4, 5}, list);
         assertEquals(8, numComparison);
     }
-
-
 }
