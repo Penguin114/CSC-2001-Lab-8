@@ -65,7 +65,7 @@ public class ComparisonSortTests {
         assertFalse(sorted);
 
         int[] list3 = ComparisonSort.intRandArray(888);
-        int sortedArray = ComparisonSort.insertionSort(list3);
+        ComparisonSort.insertionSort(list3);
         int maximum = list3[0];
         boolean sortedInsertion = true;
         for (int i = 1; i < 888; i++) {
