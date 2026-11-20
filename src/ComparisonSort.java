@@ -74,8 +74,7 @@ public class ComparisonSort {
      * create insertion sort using the given integer array
      * @ param: int[]
      * @ return: int number of comparison
-     * @author: geeksforgeeks.com
-     * (1) {3, 5, 0, 2} -> insertionSort() -> {0, 2, 3, 5}
+     * (1) {5, 3, 2, 0} -> insertionSort() -> {0, 2, 3, 5} -> returns 10
      *
      */
     public static int insertionSort (int[] list) {
@@ -97,65 +96,12 @@ public class ComparisonSort {
         }
         return comparisons;
     }
-    /**
-     * Sorts the array using merge sort and counts each comparison in mComparison.
-     * @param list the array to sort
-     * @return the sorted array
 
-    public static int[] mergeSortResult(int[] list) {
-        mComparison++;
-        if (list.length <= 1) {
-            return list;
-        }
-
-        int middle = list.length / 2;
-        int[] left = mergeSortResult(Arrays.copyOfRange(list, 0, middle));
-        int[] right = mergeSortResult(Arrays.copyOfRange(list, middle, list.length));
-        int leftIndex = 0;
-        int rightIndex = 0;
-        int resultIndex = 0;
-
-        while (true) {
-            mComparison++;
-            if (leftIndex >= left.length) {
-                break;
-            }
-            mComparison++;
-            if (rightIndex >= right.length) {
-                break;
-            }
-
-            //if left is smaller, add left, right smaller, add right
-            mComparison++;
-            if (left[leftIndex] <= right[rightIndex]) {
-                list[resultIndex++] = left[leftIndex++];
-            } else {
-                list[resultIndex++] = right[rightIndex++];
-            }
-        }
-
-        // put rest of the element into the list in case one of the side lists still have elements remaining
-        while (true) {
-            mComparison++;
-            if (leftIndex >= left.length) {
-                break;
-            }
-            list[resultIndex++] = left[leftIndex++];
-        }
-        while (true) {
-            mComparison++;
-            if (rightIndex >= right.length) {
-                break;
-            }
-            list[resultIndex++] = right[rightIndex++];
-        }
-        return list;
-    }
-*/
     /**
      * Sorts the array using merge sort and counts element comparisons in mComparison.
      * @param list the array to sort
      * @return the sorted array
+     * (1) {3, 5, 0, 2} -> mergeSortResultTwo() -> {0, 2, 3, 5}
      */
     public static int[] mergeSortResultTwo(int[] list) {
         if (list.length <= 1) {
@@ -204,12 +150,11 @@ public class ComparisonSort {
      * create merge sort using the given integer array
      * @ param: int[]
      * @ return: int number of comparison
+     * (1) {1, 2, 3, 4, 5, 6, 7, 8} -> mergeSort() -> returns 12
      */
     public static int mergeSort (int[] list) {
         mComparison = 0;
-
         mergeSortResultTwo(list);
-
         return mComparison;
     }
 }
