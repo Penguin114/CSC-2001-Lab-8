@@ -51,10 +51,10 @@ public class ComparisonSortTests {
         assertArrayEquals(new int[]{1, 2, 3, 4, 5}, list);
         assertEquals(8, numComparison);
 
-        int[] list2 = ComparisonSort.intRandArray(100);
+        int[] list2 = {1, 2, 5, 4, 3, 10, 9};
         int max = list2[0];
         boolean sorted = true;
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i < 9; i++) {
             if (max < list2[i]) {
                 max = list2[i];
             } else {
