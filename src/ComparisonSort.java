@@ -6,20 +6,16 @@ import java.util.Arrays;
 Name(s): Randy D. Peter W.
 
 Responsibilities Descriptions:
-Randy D.: Insertion Sort and checking number of comparisons
- Peter W.:  Merge Sort, plotting, filling out table
 
- All: Test cases and Questions for Lab 8.
 
 Sources you used:
  (1) geeksforgeeks.com
- (2) ChatGPT (vibe coded Merge Sort -> approved by Professor)
 
 ***********************/
 public class ComparisonSort {
     private static int mComparison = 0;
 
-    public static void main() {
+    public static void main(){
         //TODO: ask user to enter the capacity
         System.out.println("Enter an integer to determine capacity of the array.");
         Scanner scan = new Scanner(System.in);
@@ -30,8 +26,7 @@ public class ComparisonSort {
         int cap = scan.nextInt();
         //TODO: call the method createRandom and pass capacity
         int[] randomArray = intRandArray(cap);
-        int[] randomArray1 = Arrays.copyOf(randomArray, randomArray.length);
-        int[] randomArray2 = Arrays.copyOf(randomArray, randomArray.length);
+        Arrays.sort(randomArray);
         //TODO: call methods of sort algorithm  you implemented and Arrays.sort()
         // by passing sorted and unsorted arrays
 
@@ -42,13 +37,13 @@ public class ComparisonSort {
         System.out.println("Insertion sort of " + cap + " elements took " + insertDuration + " ms and " + comparisonsInsertion + " comparisons.");
 
         long startMergeTime = System.nanoTime();
-        int mergeComparisons = mergeSort(randomArray1);
+        int mergeComparisons = mergeSort(randomArray);
         long endMergeTime = System.nanoTime();
         long mergeDuration = ((endMergeTime - startMergeTime) / 1000000);
         System.out.println("Merge sort of " + cap + " elements took " + mergeDuration + " ms and " + mergeComparisons + " comparisons.");
 
         long startTime = System.nanoTime();
-        Arrays.sort(randomArray2);
+        Arrays.sort(randomArray);
         long endTime = System.nanoTime();
         long duration = ((endTime - startTime) / 1000000);
         System.out.println("Java array sort of " + cap + " elements took " + duration + " ms.");

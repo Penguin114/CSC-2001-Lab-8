@@ -42,4 +42,13 @@ public class ComparisonSortTests {
         }
         assertTrue(sorted);
     }
+
+    @Test
+    public void insertionSortTest(){
+        int[] list = {5, 2, 3, 1, 4};
+        int numComparison = ComparisonSort.insertionSort(list);
+
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, list);
+        assertEquals(8, numComparison);
+    }
 }
